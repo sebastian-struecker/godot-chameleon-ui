@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://lfsx8cpj1csw"]
+
+[ext_resource type="Script" uid="uid://b4weepn00v207" path="res://examples/splash_screen/splash_screen.gd" id="1_ckogy"]
+[ext_resource type="PackedScene" uid="uid://ckyj06r2dnsqg" path="res://addons/godot_chameleon_ui/controllers/splash_screen_controller/splash_screen_controller.tscn" id="2_uydkh"]
+[ext_resource type="Script" uid="uid://cch4klc8qdkr5" path="res://addons/godot_chameleon_ui/components/label_gcui.gd" id="2_ypdux"]
+
+[sub_resource type="Gradient" id="Gradient_oig88"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ypdux"]
+gradient = SubResource("Gradient_oig88")
+width = 256
+height = 256
+
+[sub_resource type="Gradient" id="Gradient_xd2ic"]
+offsets = PackedFloat32Array(0, 0.9931507)
+colors = PackedColorArray(1, 0.99607843, 0, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_skarf"]
+gradient = SubResource("Gradient_xd2ic")
+width = 256
+height = 256
+
+[sub_resource type="Gradient" id="Gradient_wi8mj"]
+offsets = PackedFloat32Array(0, 0.9931507)
+colors = PackedColorArray(0, 0.99607843, 0, 1, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ersdp"]
+gradient = SubResource("Gradient_wi8mj")
+width = 256
+height = 256
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ckogy")
+
+[node name="LabelGCUI" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -11.5
+offset_right = 148.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Press enter to start the splash screens"
+script = ExtResource("2_ypdux")
+font_size = 20
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"
+
+[node name="SplashScreenController" parent="." instance=ExtResource("2_uydkh")]
+visible = false
+layout_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="SplashScreenController"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ypdux")
+
+[node name="TextureRect2" type="TextureRect" parent="SplashScreenController"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_skarf")
+
+[node name="TextureRect3" type="TextureRect" parent="SplashScreenController"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ersdp")

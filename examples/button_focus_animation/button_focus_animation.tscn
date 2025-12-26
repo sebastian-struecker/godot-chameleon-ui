@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy0rrnmmxtuct"]
+
+[ext_resource type="Script" uid="uid://ckklke8saj1au" path="res://examples/button_focus_animation/button_focus_animation.gd" id="1_s31nt"]
+[ext_resource type="Shader" uid="uid://k87t2g4eg5sb" path="res://addons/godot_chameleon_ui/utilities/transparency_material_gcui/transparency_2d.gdshader" id="3_0bxt1"]
+[ext_resource type="Script" uid="uid://b0dn8prd3v4pj" path="res://addons/godot_chameleon_ui/components/button_gcui.gd" id="3_v1fkt"]
+[ext_resource type="PackedScene" uid="uid://cdmblhbop5077" path="res://addons/godot_chameleon_ui/animations/focus_animation_gcui/focus_animation_gcui.tscn" id="4_0bxt1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v1fkt"]
+resource_local_to_scene = true
+shader = ExtResource("3_0bxt1")
+shader_parameter/transparency = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0bxt1"]
+resource_local_to_scene = true
+shader = ExtResource("3_0bxt1")
+shader_parameter/transparency = 1.0
+
+[node name="ButtonFocusAnimation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s31nt")
+
+[node name="RightButton" type="Button" parent="."]
+material = SubResource("ShaderMaterial_v1fkt")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 117.0
+offset_top = -22.0
+offset_right = 205.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Right"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_v1fkt")
+focus_type = 1
+metadata/_custom_type_script = "uid://b0dn8prd3v4pj"
+
+[node name="UiAnimation" parent="RightButton" node_paths=PackedStringArray("control") instance=ExtResource("4_0bxt1")]
+control = NodePath("..")
+
+[node name="LeftButton" type="Button" parent="."]
+material = SubResource("ShaderMaterial_0bxt1")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -22.0
+offset_right = -122.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_v1fkt")
+focus_type = 1
+metadata/_custom_type_script = "uid://b0dn8prd3v4pj"
+
+[node name="UiAnimation" parent="LeftButton" node_paths=PackedStringArray("control") instance=ExtResource("4_0bxt1")]
+control = NodePath("..")

@@ -1,0 +1,28 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="godot-chameleon-ui"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="uid://coce25j7pcdey"
+
+[autoload]
+
+ChameleonUI="*res://addons/godot_chameleon_ui/chameleon_ui.gd"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_chameleon_ui/plugin.cfg", "res://addons/simple_gdscript_formatter/plugin.cfg")

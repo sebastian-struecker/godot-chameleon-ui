@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdmblhbop5077"]
+
+[ext_resource type="Script" uid="uid://dmlv3u7tq6lps" path="res://addons/godot_chameleon_ui/animations/focus_animation_gcui/focus_animation_gcui.gd" id="1_lry0k"]
+
+[node name="FocusAnimationGCUI" type="Node"]
+script = ExtResource("1_lry0k")

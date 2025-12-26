@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4s0wr6xuio50"]
+
+[ext_resource type="Script" uid="uid://b1sbyilgfkvwr" path="res://addons/godot_chameleon_ui/components/panel_container_gcui.gd" id="1_stb4w"]
+[ext_resource type="Shader" uid="uid://k87t2g4eg5sb" path="res://addons/godot_chameleon_ui/utilities/transparency_material_gcui/transparency_2d.gdshader" id="1_uydj4"]
+[ext_resource type="Script" uid="uid://d7khk0wgf355" path="res://addons/godot_chameleon_ui/components/margin_container_gcui.gd" id="2_uydj4"]
+[ext_resource type="Script" uid="uid://cch4klc8qdkr5" path="res://addons/godot_chameleon_ui/components/label_gcui.gd" id="3_8iyao"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8iyao"]
+resource_local_to_scene = true
+shader = ExtResource("1_uydj4")
+shader_parameter/transparency = 1.0
+
+[node name="Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainerGCUI" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_8iyao")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = 122.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stb4w")
+metadata/_custom_type_script = "uid://b1sbyilgfkvwr"
+
+[node name="MarginContainerGCUI" type="MarginContainer" parent="PanelContainerGCUI"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("2_uydj4")
+preset = 0
+margins = Vector4i(20, 20, 20, 20)
+metadata/_custom_type_script = "uid://d7khk0wgf355"
+
+[node name="LabelGCUI" type="Label" parent="PanelContainerGCUI/MarginContainerGCUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "This is dialog content"
+script = ExtResource("3_8iyao")
+font_size = 20
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"

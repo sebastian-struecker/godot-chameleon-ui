@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b8u0r26jmxlgj"]
+
+[ext_resource type="Shader" uid="uid://k87t2g4eg5sb" path="res://addons/godot_chameleon_ui/utilities/transparency_material_gcui/transparency_2d.gdshader" id="1_qubhr"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_qubhr")
+shader_parameter/transparency = 0.8

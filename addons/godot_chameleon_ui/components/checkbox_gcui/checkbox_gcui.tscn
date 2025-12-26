@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfv05orktrwbg"]
+
+[ext_resource type="Script" uid="uid://hk2rwta7y1k2" path="res://addons/godot_chameleon_ui/components/checkbox_gcui/checkbox_gcui.gd" id="1_ypjvr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2868b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2868b"]
+noise = SubResource("FastNoiseLite_2868b")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wjt7"]
+region = Rect2(240, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4nwo"]
+region = Rect2(208, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj4ba"]
+region = Rect2(272, 352, 16, 16)
+
+[node name="CheckboxGCUI" type="CenterContainer"]
+offset_right = 33.0
+offset_bottom = 33.0
+script = ExtResource("1_ypjvr")
+
+[node name="CheckedTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("NoiseTexture2D_2868b")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="UncheckedTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_6wjt7")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="DisabledUncheckedTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_p4nwo")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="DisabledCheckedTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("AtlasTexture_lj4ba")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+flat = true

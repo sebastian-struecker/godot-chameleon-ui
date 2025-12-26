@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcglpev1al0sq"]
+
+[ext_resource type="Script" uid="uid://c7q2khs0bk3gv" path="res://addons/godot_chameleon_ui/components/dialog_module_gcui/dialog_module_gcui.gd" id="1_kog1q"]
+[ext_resource type="Script" uid="uid://b0dn8prd3v4pj" path="res://addons/godot_chameleon_ui/components/button_gcui.gd" id="2_chc88"]
+
+[node name="DialogModuleUI" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kog1q")
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 30
+
+[node name="BackgroundButton" type="Button" parent="DialogLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_chc88")
+metadata/_custom_type_script = "uid://b0dn8prd3v4pj"

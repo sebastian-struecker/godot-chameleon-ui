@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://br4yfd3mbo2e3"]
+
+[ext_resource type="PackedScene" uid="uid://dcglpev1al0sq" path="res://addons/godot_chameleon_ui/components/dialog_module_gcui/dialog_module_gcui.tscn" id="1_d8wj5"]
+[ext_resource type="PackedScene" uid="uid://c4s0wr6xuio50" path="res://examples/dialog_menu/dialog.tscn" id="2_5kabd"]
+[ext_resource type="Shader" uid="uid://k87t2g4eg5sb" path="res://addons/godot_chameleon_ui/utilities/transparency_material_gcui/transparency_2d.gdshader" id="3_5kabd"]
+[ext_resource type="Script" uid="uid://b0dn8prd3v4pj" path="res://addons/godot_chameleon_ui/components/button_gcui.gd" id="3_d8wj5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efrsa"]
+resource_local_to_scene = true
+shader = ExtResource("3_5kabd")
+shader_parameter/transparency = 1.0
+
+[node name="DialogMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogModuleUI" parent="." node_paths=PackedStringArray("open_button") instance=ExtResource("1_d8wj5")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+open_button = NodePath("../ButtonGCUI")
+dialog_scene = ExtResource("2_5kabd")
+
+[node name="ButtonGCUI" type="Button" parent="."]
+material = SubResource("ShaderMaterial_efrsa")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.5
+offset_top = -15.5
+offset_right = 51.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Open Dialog"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_d8wj5")
+font_size = 20
+metadata/_custom_type_script = "uid://b0dn8prd3v4pj"

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbvat2a0slale"]
+
+[ext_resource type="Script" uid="uid://cd2kpfsx8a31d" path="res://addons/godot_chameleon_ui/controllers/debounce/debounce.gd" id="1_l1uw8"]
+
+[node name="Debounce" type="Node"]
+script = ExtResource("1_l1uw8")

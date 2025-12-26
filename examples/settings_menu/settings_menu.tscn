@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4mxfuujdujgi"]
+
+[ext_resource type="PackedScene" uid="uid://bxttp1gxuuhwa" path="res://addons/godot_chameleon_ui/components/slider_gcui/slider_gcui.tscn" id="1_nedbt"]
+[ext_resource type="Script" uid="uid://b1sbyilgfkvwr" path="res://addons/godot_chameleon_ui/components/panel_container_gcui.gd" id="4_kvl3d"]
+[ext_resource type="Script" uid="uid://d7khk0wgf355" path="res://addons/godot_chameleon_ui/components/margin_container_gcui.gd" id="5_pbmvh"]
+[ext_resource type="Script" uid="uid://cj5t7ga4k4ti3" path="res://addons/godot_chameleon_ui/components/box_container_gcui.gd" id="6_frk0n"]
+[ext_resource type="Script" uid="uid://cch4klc8qdkr5" path="res://addons/godot_chameleon_ui/components/label_gcui.gd" id="7_lylfu"]
+[ext_resource type="Script" uid="uid://3lxylky0yk6o" path="res://addons/godot_chameleon_ui/components/dropdown_gcui.gd" id="8_3pjg0"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainerGCUI" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_kvl3d")
+metadata/_custom_type_script = "uid://b1sbyilgfkvwr"
+
+[node name="MarginContainerGCUI" type="MarginContainer" parent="PanelContainerGCUI"]
+layout_mode = 2
+theme_override_constants/margin_left = 62
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 62
+theme_override_constants/margin_bottom = 35
+script = ExtResource("5_pbmvh")
+preset = 4
+margins = Vector4i(62, 35, 62, 35)
+metadata/_custom_type_script = "uid://d7khk0wgf355"
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainerGCUI/MarginContainerGCUI"]
+layout_mode = 2
+
+[node name="BoxContainerGCUI" type="BoxContainer" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+vertical = true
+script = ExtResource("6_frk0n")
+type = 1
+separation = 20
+metadata/_custom_type_script = "uid://cj5t7ga4k4ti3"
+
+[node name="DisplayBoxContainer" type="BoxContainer" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI"]
+layout_mode = 2
+theme_override_constants/separation = 40
+script = ExtResource("6_frk0n")
+separation = 40
+metadata/_custom_type_script = "uid://cj5t7ga4k4ti3"
+
+[node name="LabelGCUI" type="Label" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI/DisplayBoxContainer"]
+layout_mode = 2
+text = "Display"
+script = ExtResource("7_lylfu")
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"
+
+[node name="DropdownGCUI" type="OptionButton" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI/DisplayBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+script = ExtResource("8_3pjg0")
+metadata/_custom_type_script = "uid://3lxylky0yk6o"
+
+[node name="VolumeBoxContainer" type="BoxContainer" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI"]
+layout_mode = 2
+theme_override_constants/separation = 24
+script = ExtResource("6_frk0n")
+separation = 24
+metadata/_custom_type_script = "uid://cj5t7ga4k4ti3"
+
+[node name="LabelGCUI" type="Label" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI/VolumeBoxContainer"]
+layout_mode = 2
+text = "Volume"
+script = ExtResource("7_lylfu")
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"
+
+[node name="SliderGCUI" parent="PanelContainerGCUI/MarginContainerGCUI/CenterContainer/BoxContainerGCUI/VolumeBoxContainer" instance=ExtResource("1_nedbt")]
+layout_mode = 2
+label_font_size = 12
+label_separation = 2

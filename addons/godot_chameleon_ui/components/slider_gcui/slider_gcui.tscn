@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxttp1gxuuhwa"]
+
+[ext_resource type="Script" uid="uid://bd7pqe2mi7lo" path="res://addons/godot_chameleon_ui/components/slider_gcui/slider_gcui.gd" id="1_x5vh3"]
+[ext_resource type="Script" uid="uid://cj5t7ga4k4ti3" path="res://addons/godot_chameleon_ui/components/box_container_gcui.gd" id="3_aqdjc"]
+[ext_resource type="Script" uid="uid://cch4klc8qdkr5" path="res://addons/godot_chameleon_ui/components/label_gcui.gd" id="3_c3yke"]
+[ext_resource type="PackedScene" uid="uid://cbvat2a0slale" path="res://addons/godot_chameleon_ui/controllers/debounce/debounce.tscn" id="3_gutll"]
+
+[node name="SliderGCUI" type="CenterContainer"]
+custom_minimum_size = Vector2(150, 24)
+offset_right = 169.0
+offset_bottom = 26.0
+script = ExtResource("1_x5vh3")
+display_value_label = true
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("3_aqdjc")
+metadata/_custom_type_script = "uid://cj5t7ga4k4ti3"
+
+[node name="ValueLabelTop" type="Label" parent="BoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_c3yke")
+font_size = 18
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"
+
+[node name="HSlider" type="HSlider" parent="BoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 24)
+layout_direction = 2
+layout_mode = 2
+size_flags_vertical = 4
+rounded = true
+
+[node name="VSlider" type="VSlider" parent="BoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(150, 24)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ValueLabelBottom" type="Label" parent="BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_c3yke")
+font_size = 18
+metadata/_custom_type_script = "uid://cch4klc8qdkr5"
+
+[node name="Debounce" parent="." instance=ExtResource("3_gutll")]
